@@ -12,9 +12,16 @@
   "homepage": "https://github.com/reduxjs/react-redux",
   "repository": "github:reduxjs/react-redux",
   "bugs": "https://github.com/reduxjs/react-redux/issues",
+  "type": "module",
   "main": "./lib/index.js",
   "unpkg": "dist/react-redux.js",
   "module": "es/index.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "files": [
     "dist",
     "lib",
@@ -22,13 +29,13 @@
     "es"
   ],
   "scripts": {
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build:es": "babel src --out-dir es",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib && echo '{\"name\": \"react-redux\"}' > lib/package.json",
+    "build:es": "babel src --out-dir es && echo '{\"name\": \"react-redux\", \"type\": \"module\"}' > es/package.json",
     "build:umd": "cross-env NODE_ENV=development rollup -c -o dist/react-redux.js",
     "build:umd:min": "cross-env NODE_ENV=production rollup -c -o dist/react-redux.min.js",
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "clean": "rimraf lib dist es coverage",
-    "format": "prettier --write \"{src,test}/**/*.{js,ts}\" index.d.ts \"docs/**/*.md\"",
+    "format": "prettier --write \"{src,test}/**/*.{js,cjs,ts}\" index.d.ts \"docs/**/*.md\"",
     "lint": "eslint src test/utils test/components test/hooks",
     "prepare": "npm run clean && npm run build",
     "pretest": "npm run lint",

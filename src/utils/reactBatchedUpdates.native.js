@@ -1,4 +1,5 @@
-/* eslint-disable import/no-unresolved */
-import { unstable_batchedUpdates } from 'react-native'
+import ReactNative from 'react-dom'
+
+const { unstable_batchedUpdates } = ReactNative
 
 export { unstable_batchedUpdates }

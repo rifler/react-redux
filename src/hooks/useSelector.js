@@ -1,4 +1,5 @@
-import { useReducer, useRef, useMemo, useContext, useDebugValue } from 'react'
+import React from 'react'
+const { useReducer, useRef, useMemo, useContext, useDebugValue } = React
 import { useReduxContext as useDefaultReduxContext } from './useReduxContext'
 import Subscription from '../utils/Subscription'
 import { useIsomorphicLayoutEffect } from '../utils/useIsomorphicLayoutEffect'

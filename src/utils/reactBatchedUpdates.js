@@ -1,2 +1,5 @@
-/* eslint-disable import/no-unresolved */
-export { unstable_batchedUpdates } from 'react-dom'
+import ReactDOM from 'react-dom'
+
+const { unstable_batchedUpdates } = ReactDOM
+
+export { unstable_batchedUpdates }

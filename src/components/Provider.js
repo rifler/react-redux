@@ -1,4 +1,5 @@
-import React, { useMemo, useEffect } from 'react'
+import React from 'react'
+const { useMemo, useEffect } = React
 import PropTypes from 'prop-types'
 import { ReactReduxContext } from './Context'
 import Subscription from '../utils/Subscription'
